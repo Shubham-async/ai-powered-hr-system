@@ -1,0 +1,36 @@
+name: Keep Render App Alive
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"   # Runs every 5 minutes
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ping Render Services
+        run: |
+          URLS=(
+            "https://module-1-0.onrender.com/healthz"
+            "https://aurion-6ivs.onrender.com/healthz"
+          )
+
+          for URL in "${URLS[@]}"; do
+            echo "Pinging: $URL"
+
+            # Retry 3 times if failed
+            for i in {1..3}; do
+              STATUS=$(curl -o /dev/null -s -w "%{http_code}" "$URL")
+
+              if [ "$STATUS" -eq 200 ]; then
+                echo "SUCCESS: $URL is alive (Status: 200)"
+                break
+              else
+                echo "FAIL: $URL returned status $STATUS (Attempt $i/3)"
+                sleep 5
+              fi
+            done
+
+          done

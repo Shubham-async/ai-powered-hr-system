@@ -1,0 +1,38 @@
+{
+  "name": "module-2",
+  "version": "1.0.0",
+  "description": "module for workforce Management",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@getbrevo/brevo": "^5.0.4",
+    "@google/genai": "^1.43.0",
+    "@google/generative-ai": "^0.24.1",
+    "@langchain/core": "^1.1.39",
+    "@langchain/google-genai": "^2.1.26",
+    "@langchain/groq": "^1.2.0",
+    "@langchain/langgraph": "^1.2.7",
+    "axios": "^1.6.0",
+    "bcryptjs": "^2.4.3",
+    "bull": "^4.16.5",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.1",
+    "multer": "^2.0.2",
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^8.0.5",
+    "nodemon": "^3.1.10",
+    "pdf-parse-fixed": "^1.1.1",
+    "pdfjs-dist": "^5.6.205",
+    "resend": "^6.11.0",
+    "socket.io": "^4.8.3"
+  }
+}
